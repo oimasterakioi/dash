@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Dash</title>
+    <script type="text/javascript" src="jquery.js"></script>
+    <script type="text/javascript" src="vue.js"></script>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="fa/css/font-awesome.css">
+    <script type="text/javascript" src="sweetalert.js"></script>
+</head>
+
+<body>
+    <div class="logo">
+        Dash
+    </div>
+    <div id="app" style="display: none;">
+        <div id="task-all" style="display: none;">
+            <!-- all tasks -->
+            <h1>All</h1>
+            <div class="task-container">
+                <div v-for="item,index in taskall" class="todo" v-bind:id="'todoall'+index">
+                    <del v-if="item.done">{{item.str}}</del>
+                    <span v-else>{{item.str}}</span>
+                    <i class="fa fa-angle-double-right" @click="doitnow(index)"></i>
+                    <i v-if="!item.done" class="fa fa-check" v-on:click="doneall(index)"></i>
+                    <i v-else class="fa fa-times" v-on:click="cancelall(index)"></i>
+                    <i class="fa fa-trash" v-on:click="delall(index)"></i>
+                </div>
+            </div>
+            <div class="add" @click="popall()">
+                <span class="fa fa-plus"></span>
+                <br>
+                <input type="text" id="plusall" @keyup.enter.exact="addall()" placeholder="Press enter to add this task." class="addinput" style="display: none;" @click.stop>
+            </div>
+        </div>
+        <div id="task-today" style="display: none;">
+            <!-- today's tasks -->
+            <h1>Today</h1>
+            <div class="task-container">
+                <div v-for="item,index in tasktoday" class="todo" v-bind:id="'todotoday'+index">
+                    <del v-if="item.done">{{item.str}}</del>
+                    <span v-else>{{item.str}}</span>
+                    <i v-if="!item.done" class="fa fa-check" v-on:click="donenow(index)"></i>
+                    <i v-else class="fa fa-times" v-on:click="cancelnow(index)"></i>
+                    <i class="fa fa-trash" v-on:click="delnow(index)"></i>
+                    <i class="fa fa-angle-double-left" @click="nottoday(index)"></i>
+                </div>
+            </div>
+            <div class="add" @click="poptoday()">
+                <span class="fa fa-plus"></span>
+                <br>
+                <input type="text" id="plustoday" @keyup.enter.exact="addtoday()" placeholder="Press enter to add this task." class="addinput" style="display: none;" @click.stop>
+            </div>
+        </div>
+    </div>
+    <div style="display:none" class="timer">
+</body>
+<script type="text/javascript" src="index.js"></script>
+
+</html>

@@ -1,0 +1,154 @@
+body {
+    background-color: #333;
+    color: white;
+    user-select: none;
+}
+
+.logo {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    font-size: 2px;
+    opacity: 0;
+    animation: fade 4s;
+    animation-delay: 1s;
+    animation-fill-mode: forwards;
+    user-select: none;
+}
+
+@keyframes fade {
+    0% {
+        opacity: 0;
+        font-size: 2px;
+    }
+
+    40% {
+        opacity: 1;
+    }
+
+    50% {
+        font-size: 80px;
+    }
+
+    75% {
+        opacity: 1;
+        font-size: 80px
+    }
+
+    100% {
+        opacity: 0;
+        font-size: 80px;
+    }
+}
+
+#starting {
+    width: calc(100% - 20px);
+    height: calc(100% - 20px);
+    position: absolute;
+}
+
+#app {
+    width: calc(100% - 20px);
+    height: calc(100% - 20px);
+    position: absolute;
+    display: flex;
+}
+
+#task-all {
+    height: 100%;
+    flex: 0.4;
+    border-right: 1px #aaa solid;
+    display: flex;
+    flex-direction: column;
+}
+
+.task-container {
+    overflow: auto;
+    /*flex-grow: 1;*/
+    /*flex-shrink: 1;*/
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+#task-today {
+    height: 100%;
+    flex: 0.6;
+    display: flex;
+    flex-direction: column;
+}
+
+.todo {
+    font-size: 22px;
+    font-style: bold;
+    padding: 5px;
+    padding-left: 15px;
+    margin: 5px;
+    border-radius: 5px;
+    /*cursor: pointer; */
+}
+
+.todo:hover {
+    flex: 0.8;
+    background-color: #666;
+}
+
+.add {
+    /*flex: 0.07;*/
+    justify-content: flex-end;
+    text-align: center;
+    cursor: pointer;
+    font-size: 22px;
+    font-style: bold;
+    padding: 5px;
+    margin: 5px;
+    border-radius: 5px;
+    background-color: #555;
+}
+
+.add:hover {
+    background-color: #666;
+}
+
+.addinput {
+    width: calc(100% - 10px);
+    border: none;
+    background-color: transparent;
+    font-size: 22px;
+    overflow: auto;
+    margin: 5px;
+    outline: none;
+    color: white;
+}
+
+button {
+    cursor: pointer;
+}
+
+h1 {
+    /*flex: 0.1;*/
+    font-size: 20px;
+    color: #aaa;
+    /*text-align: center;*/
+    padding-left: 20px;
+    border-bottom: 1px #aaa solid;
+}
+
+del {
+    opacity: 0.2;
+}
+
+i.fa {
+    color: #aaa;
+    cursor: pointer;
+    float: right;
+    margin: 2px;
+    margin-top: 5px;
+    font-size: 20px;
+}
+
+i.fa:hover {
+    color: #fff;
+}
